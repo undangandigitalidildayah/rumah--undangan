@@ -1,0 +1,507 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#8b6b65">
+  <title>Undangan Pernikahan | Aisyah & Fajar</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8f3ef;
+      color: #51413d;
+      line-height: 1.8;
+    }
+
+    body.locked {
+      overflow: hidden;
+    }
+
+    .cover {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 25px;
+      color: white;
+      background:
+        linear-gradient(rgba(49, 35, 33, .55), rgba(49, 35, 33, .65)),
+        radial-gradient(ellipse at top, #c5a59a, #735b56 70%);
+      transition: opacity .7s ease, visibility .7s ease;
+    }
+
+    .cover.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .cover-content {
+      max-width: 520px;
+    }
+
+    .cover-label {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .cover h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 12vw, 76px);
+      font-weight: 500;
+      line-height: 1.1;
+      margin: 22px 0;
+    }
+
+    .cover p {
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    .open-button {
+      border: 1px solid white;
+      background: transparent;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font: inherit;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .open-button:hover {
+      background: white;
+      color: #735b56;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+      color: white;
+      background:
+        linear-gradient(rgba(55, 39, 37, .35), rgba(55, 39, 37, .55)),
+        radial-gradient(ellipse at center, #c9aaa0, #80645d);
+    }
+
+    .hero h2 {
+      font: 500 clamp(48px, 11vw, 82px)/1.1 'Cormorant Garamond', serif;
+      margin: 20px 0;
+    }
+
+    .hero .date {
+      letter-spacing: 3px;
+      font-size: 13px;
+    }
+
+    .section {
+      padding: 75px 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: auto;
+    }
+
+    .eyebrow {
+      color: #a17e73;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .section h2 {
+      font: 500 42px/1.2 'Cormorant Garamond', serif;
+      color: #765a53;
+      margin: 12px 0 20px;
+    }
+
+    .section p {
+      font-size: 13px;
+      color: #766b67;
+    }
+
+    .couple {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 35px;
+    }
+
+    .person {
+      padding: 25px 15px;
+      background: #fffaf6;
+      border-radius: 150px 150px 15px 15px;
+      border: 1px solid #eadbd3;
+    }
+
+    .person-photo {
+      width: 145px;
+      height: 145px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #ddc5ba, #a9877d);
+      border: 6px solid white;
+      box-shadow: 0 5px 20px #765a5320;
+    }
+
+    .person h3 {
+      font: 600 30px 'Cormorant Garamond', serif;
+      color: #765a53;
+    }
+
+    .person small {
+      font-size: 11px;
+      color: #98857e;
+    }
+
+    .ampersand {
+      font: 40px 'Cormorant Garamond', serif;
+      color: #a17e73;
+      align-self: center;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 30px 0;
+    }
+
+    .count-box {
+      background: #fffaf6;
+      border: 1px solid #eadbd3;
+      border-radius: 12px;
+      min-width: 70px;
+      padding: 12px 8px;
+    }
+
+    .count-box strong {
+      display: block;
+      font: 30px 'Cormorant Garamond', serif;
+      color: #765a53;
+    }
+
+    .count-box span {
+      font-size: 10px;
+      color: #98857e;
+    }
+
+    .event-card {
+      background: #fffaf6;
+      border: 1px solid #eadbd3;
+      border-radius: 18px;
+      padding: 30px 20px;
+      margin: 18px auto;
+      max-width: 520px;
+    }
+
+    .event-card h3 {
+      font: 30px 'Cormorant Garamond', serif;
+      color: #765a53;
+      margin-bottom: 10px;
+    }
+
+    .event-card p {
+      margin: 5px 0;
+    }
+
+    .map-button, .submit-button {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 10px 22px;
+      border: 0;
+      border-radius: 30px;
+      background: #8b6b65;
+      color: white;
+      text-decoration: none;
+      font: inherit;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .quote {
+      background: #eee2dc;
+      padding: 65px 25px;
+      text-align: center;
+      font: italic 25px/1.6 'Cormorant Garamond', serif;
+      color: #765a53;
+    }
+
+    .rsvp-form {
+      max-width: 480px;
+      margin: 25px auto 0;
+      text-align: left;
+    }
+
+    .rsvp-form label {
+      display: block;
+      font-size: 12px;
+      margin: 14px 0 5px;
+    }
+
+    .rsvp-form input, .rsvp-form select, .rsvp-form textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #dfcec5;
+      border-radius: 8px;
+      background: #fffaf6;
+      color: #51413d;
+      font: inherit;
+      font-size: 13px;
+    }
+
+    footer {
+      background: #765a53;
+      color: white;
+      padding: 35px 20px;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    footer strong {
+      display: block;
+      font: 35px 'Cormorant Garamond', serif;
+      margin: 8px 0;
+    }
+
+    @media (max-width: 560px) {
+      .couple {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .ampersand {
+        margin: -5px 0;
+      }
+
+      .person {
+        max-width: 310px;
+        width: 100%;
+        margin: auto;
+      }
+
+      .countdown {
+        gap: 6px;
+      }
+
+      .count-box {
+        min-width: 62px;
+      }
+    }
+  </style>
+</head>
+
+<body class="locked">
+
+  <div class="cover" id="cover">
+    <div class="cover-content">
+      <div class="cover-label">The Wedding Of</div>
+      <h1>Aisyah<br>& Fajar</h1>
+      <p>Kepada Yth. Bapak/Ibu/Saudara/i</p>
+      <p>Tanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir di hari bahagia kami.</p>
+      <button class="open-button" id="openInvitation">Buka Undangan</button>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div>
+      <div class="eyebrow" style="color:#fff">The Wedding Of</div>
+      <h2>Aisyah & Fajar</h2>
+      <div class="date">12 DESEMBER 2026</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="eyebrow">Assalamu'alaikum Warahmatullahi Wabarakatuh</div>
+        <h2>Dengan Memohon Rahmat Allah</h2>
+        <p>
+          Dengan penuh rasa syukur, kami bermaksud menyelenggarakan
+          pernikahan putra-putri kami. Merupakan kebahagiaan bagi kami
+          apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" style="background:#f1e7e1">
+      <div class="container">
+        <div class="eyebrow">Kedua Mempelai</div>
+        <h2>We Are Getting Married</h2>
+
+        <div class="couple">
+          <div class="person">
+            <div class="person-photo"></div>
+            <h3>Aisyah Putri</h3>
+            <small>Putri dari Bapak Ahmad & Ibu Siti</small>
+          </div>
+
+          <div class="person">
+            <div class="person-photo"></div>
+            <h3>Fajar Ramadhan</h3>
+            <small>Putra dari Bapak Hasan & Ibu Aminah</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="eyebrow">Save The Date</div>
+        <h2>Menuju Hari Bahagia</h2>
+        <p>12 Desember 2026</p>
+
+        <div class="countdown">
+          <div class="count-box">
+            <strong id="days">00</strong>
+            <span>Hari</span>
+          </div>
+          <div class="count-box">
+            <strong id="hours">00</strong>
+            <span>Jam</span>
+          </div>
+          <div class="count-box">
+            <strong id="minutes">00</strong>
+            <span>Menit</span>
+          </div>
+          <div class="count-box">
+            <strong id="seconds">00</strong>
+            <span>Detik</span>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <h3>Akad Nikah</h3>
+          <p>Sabtu, 12 Desember 2026</p>
+          <p>09.00 WIB – Selesai</p>
+          <p>Kediaman Mempelai Wanita</p>
+          <p>Jl. Contoh No. 10, Medan</p>
+        </div>
+
+        <div class="event-card">
+          <h3>Resepsi</h3>
+          <p>Sabtu, 12 Desember 2026</p>
+          <p>11.00 WIB – Selesai</p>
+          <p>Kediaman Mempelai Wanita</p>
+          <p>Jl. Contoh No. 10, Medan</p>
+          <a class="map-button" href="https://maps.google.com" target="_blank" rel="noopener">Lihat Lokasi</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="quote">
+      "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan
+      untukmu pasangan hidup dari jenismu sendiri."
+      <br><small style="font:12px Poppins, sans-serif">QS. Ar-Rum: 21</small>
+    </div>
+
+    <section class="section" style="background:#f1e7e1">
+      <div class="container">
+        <div class="eyebrow">Konfirmasi Kehadiran</div>
+        <h2>RSVP</h2>
+        <p>Mohon konfirmasi kehadiran Anda melalui formulir berikut.</p>
+
+        <form class="rsvp-form" id="rsvpForm">
+          <label for="guestName">Nama</label>
+          <input id="guestName" type="text" placeholder="Masukkan nama Anda" required>
+
+          <label for="attendance">Konfirmasi Kehadiran</label>
+          <select id="attendance" required>
+            <option value="">Pilih konfirmasi</option>
+            <option value="Hadir">Hadir</option>
+            <option value="Tidak hadir">Tidak hadir</option>
+          </select>
+
+          <label for="guestCount">Jumlah tamu</label>
+          <select id="guestCount">
+            <option value="1 orang">1 orang</option>
+            <option value="2 orang">2 orang</option>
+            <option value="3 orang">3 orang</option>
+            <option value="4 orang">4 orang</option>
+          </select>
+
+          <label for="guestMessage">Ucapan dan doa</label>
+          <textarea id="guestMessage" rows="3" placeholder="Tuliskan ucapan Anda"></textarea>
+
+          <button class="submit-button" type="submit">Kirim Konfirmasi</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Merupakan suatu kehormatan dan kebahagiaan bagi kami
+    <strong>Aisyah & Fajar</strong>
+    Atas doa dan kehadiran Anda, kami ucapkan terima kasih.
+    <br><br>
+    © 2026 Rumah Undangan
+  </footer>
+
+  <script>
+    const weddingDate = new Date('2026-12-12T09:00:00+07:00').getTime();
+
+    function updateCountdown() {
+      const now = Date.now();
+      const distance = weddingDate - now;
+
+      if (distance <= 0) {
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+        return;
+      }
+
+      document.getElementById('days').textContent =
+        Math.floor(distance / (1000 * 60 * 60 * 24));
+
+      document.getElementById('hours').textContent =
+        Math.floor((distance / (1000 * 60 * 60)) % 24);
+
+      document.getElementById('minutes').textContent =
+        Math.floor((distance / (1000 * 60)) % 60);
+
+      document.getElementById('seconds').textContent =
+        Math.floor((distance / 1000) % 60);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    document.getElementById('openInvitation').addEventListener('click', () => {
+      document.getElementById('cover').classList.add('hide');
+      document.body.classList.remove('locked');
+    });
+
+    document.getElementById('rsvpForm').addEventListener('submit', (event) => {
+      event.preventDefault();
+      alert('Ini masih formulir demo. Pada tahap berikutnya, RSVP akan kita hubungkan ke Google Sheets.');
+    });
+  </script>
+</body>
+</html>
