@@ -4,25 +4,170 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#faf7f2">
 
-  <title>Rumah Undangan</title>
+  <title>Rumah Undangan — Undangan Digital Elegan</title>
+  <meta name="description" content="Buat momen istimewamu semakin berkesan bersama Rumah Undangan.">
 
-  <meta name="description"
-    content="Rumah Undangan - Undangan digital elegan untuk hari istimewa Anda.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
-  <header class="container">
-    <h2>Rumah Undangan</h2>
+  <header class="navbar">
+    <a href="#" class="brand">Rumah<span>Undangan.</span></a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">
+      ☰
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Beranda</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#tema">Koleksi Tema</a>
+      <a href="#fitur">Keunggulan</a>
+      <a href="#kontak" class="nav-cta">Pesan Undangan</a>
+    </nav>
   </header>
 
-  <main class="container">
-    <h1>Selamat Datang di Rumah Undangan</h1>
-    <p>Website undangan digital untuk momen istimewa Anda.</p>
+  <main>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow">THE ART OF CELEBRATING LOVE</span>
+
+        <h1>Awali Cerita Indahmu<br>
+          <em>dengan sebuah undangan.</em>
+        </h1>
+
+        <p>
+          Setiap kisah cinta memiliki cerita yang istimewa.
+          Abadikan momen bahagiamu melalui undangan digital
+          yang elegan dan penuh makna.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#tema" class="btn-primary">Jelajahi Koleksi</a>
+          <a href="#tentang" class="btn-secondary">Kenali Kami</a>
+        </div>
+
+        <div class="hero-note">
+          Dibuat dengan cinta, untuk momen paling berharga.
+        </div>
+      </div>
+
+      <div class="hero-decoration">
+        <div class="decoration-card">
+          <span class="card-small">THE WEDDING OF</span>
+          <div class="card-names">A & D</div>
+          <div class="card-line"></div>
+          <span class="card-date">A BEAUTIFUL BEGINNING</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro section" id="tentang">
+      <span class="eyebrow">ABOUT US</span>
+      <h2>Lebih dari sekadar<br>sebuah undangan.</h2>
+      <p>
+        Rumah Undangan hadir untuk membantu setiap pasangan
+        membagikan kabar bahagia dengan cara yang indah,
+        praktis, dan mudah dikenang.
+      </p>
+    </section>
+
+    <section class="themes section" id="tema">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">OUR COLLECTION</span>
+          <h2>Temukan gaya ceritamu.</h2>
+        </div>
+        <p>Beragam pilihan desain untuk hari istimewamu.</p>
+      </div>
+
+      <div class="theme-grid">
+        <article class="theme-card">
+          <div class="theme-preview theme-one">
+            <span>THE WEDDING OF</span>
+            <strong>Amara & Dimas</strong>
+            <small>Forever begins here</small>
+          </div>
+          <div class="theme-info">
+            <h3>Elegant Romance</h3>
+            <span>01 / ELEGANT</span>
+          </div>
+        </article>
+
+        <article class="theme-card">
+          <div class="theme-preview theme-two">
+            <span>THE WEDDING OF</span>
+            <strong>Sarah & Arkan</strong>
+            <small>Two hearts, one story</small>
+          </div>
+          <div class="theme-info">
+            <h3>Modern Minimalist</h3>
+            <span>02 / MINIMALIST</span>
+          </div>
+        </article>
+
+        <article class="theme-card">
+          <div class="theme-preview theme-three">
+            <span>THE WEDDING OF</span>
+            <strong>Alia & Farhan</strong>
+            <small>A timeless celebration</small>
+          </div>
+          <div class="theme-info">
+            <h3>Floral Memories</h3>
+            <span>03 / FLORAL</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="features section" id="fitur">
+      <span class="eyebrow">WHY CHOOSE US</span>
+      <h2>Dirancang untuk memudahkanmu.</h2>
+
+      <div class="feature-grid">
+        <article>
+          <div class="feature-icon">♡</div>
+          <h3>Desain Eksklusif</h3>
+          <p>Tampilan undangan indah dan elegan untuk momen spesial.</p>
+        </article>
+
+        <article>
+          <div class="feature-icon">✉</div>
+          <h3>Mudah Dibagikan</h3>
+          <p>Satu tautan untuk dibagikan kepada keluarga dan sahabat.</p>
+        </article>
+
+        <article>
+          <div class="feature-icon">✧</div>
+          <h3>Fitur Lengkap</h3>
+          <p>RSVP, ucapan, lokasi acara, dan informasi pernikahan.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="closing section" id="kontak">
+      <span class="eyebrow">YOUR STORY STARTS HERE</span>
+      <h2>Jadikan momenmu<br>sebuah kenangan indah.</h2>
+      <p>Kami siap membantu mewujudkan undangan impianmu.</p>
+      <a href="https://wa.me/62XXXXXXXXXXX" class="btn-primary">
+        Hubungi Kami
+      </a>
+    </section>
+
   </main>
+
+  <footer>
+    <a href="#" class="brand">Rumah<span>Undangan.</span></a>
+    <p>© 2026 Rumah Undangan. Dibuat dengan cinta.</p>
+  </footer>
 
   <script src="assets/js/main.js"></script>
 
